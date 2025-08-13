@@ -181,6 +181,8 @@ plt.ylabel('Diagnóstico')
 plt.tight_layout()
 plt.show()
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/ocho.png)
+
 ###### Se realiza un conteo de los diagnósticos presentes en la base de datos y se seleccionan los tres más frecuentes. Posteriormente, se reorganiza esta información en un nuevo DataFrame con dos columnas: el nombre del diagnóstico y la cantidad de casos. Finalmente, se construye un gráfico de barras horizontales donde se representa la frecuencia de cada diagnóstico, facilitando la comparación visual entre ellos.
 ###### Análisis de resultados:
 
@@ -203,6 +205,7 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/nueve.png)
 
 ###### Se obtienen los cuatro diagnósticos con mayor frecuencia en la base de datos y se filtran los registros que corresponden a ellos. A partir de esta selección, se genera un gráfico de cajas (boxplot) para analizar la distribución de las edades en cada diagnóstico. El gráfico permite visualizar la mediana, los cuartiles y los valores atípicos, mostrando cómo varía la edad de los pacientes según el tipo de cáncer.
 
