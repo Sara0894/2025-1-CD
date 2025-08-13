@@ -30,4 +30,4 @@ print(df_online.dtypes)
 ```python
 df_online = df_online.rename(columns={'a_o': 'año'})
 ```
-######Se corrige el nombre de la columna a_o para que aparezca como año, facilitando su interpretación y análisis.
+###### Se corrige el nombre de la columna a_o para que aparezca como año, facilitando su interpretación y análisis.
