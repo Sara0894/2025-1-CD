@@ -59,7 +59,7 @@ top_5 = df_online[['nombre_diagnostico', 'edad']].sort_values('edad', ascending=
 print(top_5)
 
 top_pacientes = df_online.sort_values('edad', ascending=False).head(5)
-plt.figure(figsize=(10, 7))
+plt.figure(figsize=(10, 10))
 sns.barplot(x='nombre_diagnostico', y='edad', data=top_pacientes, color='#BAD8B6')
 plt.title('Top 5 edades de pacientes según su diagnóstico')
 plt.xlabel('Diagnóstico')
@@ -78,7 +78,7 @@ plt.show()
 #### Conteo de pacientes por régimen:
 ```python
 Regimen_counts = df_online['regimen'].value_counts()
-plt.figure(figsize=(10, 7))
+plt.figure(figsize=(10, 10))
 Regimen_counts.plot(kind='bar', color='#CDC1FF')
 plt.title('Conteo de Regímenes')
 plt.xlabel('Régimen')
@@ -119,7 +119,7 @@ print("\nTop 10 pacientes con diagnóstico TUMOR MALIGNO DEL CIEGO:")
 print(top_10_filtrado[['nombre_diagnostico', 'edad']])
 
 
-plt.figure(figsize=(10, 7))
+plt.figure(figsize=(10, 10))
 sns.barplot(x=top_10_filtrado.index, y='edad', data=top_10_filtrado, color='#9EC6F3')
 plt.title('Top 10 edades de pacientes con diagnóstico de Tumor maligno  del ciego')
 plt.xlabel('Índice del paciente')
@@ -148,7 +148,7 @@ print(top_5_filtrado[['nombre_diagnostico', 'edad']])
 
 top_5_filtrado = top_5_filtrado.reset_index(drop=True)
 
-plt.figure(figsize=(10, 7))
+plt.figure(figsize=(10, 10))
 sns.barplot(x=top_5_filtrado.index, y='edad', data=top_5_filtrado, color='#E6B2BA')
 plt.title('Top 10 menores edades de pacientes con diagnóstico de Tumor maligno del ciego')
 plt.xlabel('Índice del paciente')
@@ -173,7 +173,7 @@ conteo_diagnosticos = df_online['nombre_diagnostico'].value_counts().head(3)
 df_conteo = conteo_diagnosticos.reset_index()
 df_conteo.columns = ['nombre_diagnostico', 'cantidad']
 
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 5))
 sns.barplot(x='cantidad', y='nombre_diagnostico', data=df_conteo, color='#FADA7A')
 plt.title('Top 3 diagnósticos más comunes')
 plt.xlabel('Cantidad de diagnósticos')
@@ -195,7 +195,7 @@ top_4_diagnosticos = df_online['nombre_diagnostico'].value_counts().head(4).inde
 
 df_top5 = df_online[df_online['nombre_diagnostico'].isin(top_4_diagnosticos)]
 
-plt.figure(figsize=(12, 8))
+plt.figure(figsize=(12, 12))
 sns.boxplot(x='nombre_diagnostico', y='edad', data=df_top5, color='#B5828C')
 
 plt.title('Distribución de Edad para los 4 Diagnósticos Más Comunes')
