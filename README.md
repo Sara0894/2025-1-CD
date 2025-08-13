@@ -68,6 +68,7 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/tres.png)
 
 ###### Se identifican los 5 pacientes de mayor edad en la base de datos y sus respectivos diagnósticos, generando un gráfico de barras para visualizar la relación entre diagnóstico y edad.
 
@@ -86,6 +87,9 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/cuatro.png)
+
 ###### Se realiza un conteo del número de pacientes por tipo de régimen (contributivo, subsidiado, etc.) y se grafica en un diagrama de barras.
 
 ###### Análisis de resultados:
@@ -99,6 +103,8 @@ top_5 = top_pacientes.sort_values('edad', ascending=False).head(5)
 print("Top 5 pacientes (diagnóstico y edad) de mayor a menor:")
 print(top_5)
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/cinco.png)
+
 ###### En este paso se seleccionan únicamente las columnas nombre_diagnostico y edad para enfocarse en la relación entre ambas. Luego, se ordena la información de forma descendente según la edad, de manera que los pacientes de mayor edad aparezcan primero. Finalmente, se extraen las 5 primeras filas con head(5), que corresponden a los 5 pacientes más longevos de la base de datos junto con su diagnóstico, y se muestran en pantalla.
 ###### Análisis de resultados:
 ###### Por su prevalencia en edades avanzadas, reflejan la vulnerabilidad propia de este grupo poblacional, donde las comorbilidades y el deterioro del estado general pueden influir en la evolución de la enfermedad; este hallazgo subraya la importancia de implementar estrategias específicas de prevención, detección temprana y seguimiento para adultos mayores, así como la necesidad de adaptar los tratamientos oncológicos a sus condiciones particulares para mejorar su calidad de vida y pronóstico.
@@ -122,6 +128,8 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/seis.png)
+
 ###### Se filtra la base de datos para conservar únicamente los registros cuyo diagnóstico sea "Tumor maligno del ciego". Posteriormente, se ordenan estos casos de forma descendente según la edad y se seleccionan los 10 pacientes más longevos, mostrando sus edades y diagnóstico. Para facilitar la interpretación visual, se genera un gráfico de barras donde el eje X representa el índice del paciente en el DataFrame y el eje Y su edad, lo que permite comparar rápidamente las edades de los casos más relevantes dentro de este diagnóstico.
 
 ###### Análisis de resultados:
@@ -149,6 +157,8 @@ plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/siete.png)
+
 ###### Se filtra la base de datos para conservar únicamente los casos con diagnóstico de "Tumor maligno del ciego", y posteriormente se ordenan de menor a mayor edad para identificar a los 5 pacientes más jóvenes que lo presentan. Esta información se imprime en pantalla y se visualiza mediante un gráfico de barras donde el eje X corresponde al índice de cada paciente y el eje Y a su edad. El uso de un color distintivo facilita resaltar estos casos particulares.
 
 ###### Análisis de resultados:
