@@ -39,6 +39,7 @@ print(f"Filas: {df_online.shape[0]}, Columnas: {df_online.shape[1]}\n")
 print("Primeras 5 filas:")
 display(df_online.head())
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/uno.png)
 ###### Se indica el tamaño del conjunto de datos (cantidad de registros y variables) y se muestran las primeras cinco filas, lo que facilita familiarizarse con el tipo de información incluida, como diagnóstico, edad, régimen, año, entre otros.
 
 #### Información y estadísticas descriptivas:
@@ -49,6 +50,7 @@ display(df_online.info())
 print("\nEstadísticas descriptivas:")
 display(df_online.describe(include='all')) 
 ```
+![image](https://github.com/Sara0894/2025-1-CD/blob/main/dos.png)
 ###### Se obtiene un resumen que muestra el tipo de datos, la cantidad de valores faltantes y el número de registros por cada variable, además de incluir medidas descriptivas como frecuencias, valores máximos, mínimos y promedios.
 
 #### Top 5 edades por diagnóstico:
@@ -192,4 +194,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-###### 
+###### Se obtienen los cuatro diagnósticos con mayor frecuencia en la base de datos y se filtran los registros que corresponden a ellos. A partir de esta selección, se genera un gráfico de cajas (boxplot) para analizar la distribución de las edades en cada diagnóstico. El gráfico permite visualizar la mediana, los cuartiles y los valores atípicos, mostrando cómo varía la edad de los pacientes según el tipo de cáncer.
+
+###### Análisis de resultados:
+
+###### El análisis revela diferencias notables en la distribución etaria entre los cuatro diagnósticos más frecuentes. Algunos muestran concentraciones de pacientes en edades avanzadas, mientras que otros presentan una dispersión más amplia, con casos tanto jóvenes como mayores. La presencia de valores atípicos indica que ciertos diagnósticos pueden darse en edades inusuales, lo que podría estar relacionado con factores genéticos, condiciones predisponentes o diagnósticos incidentales. Esta información es útil para orientar estrategias de tamizaje específicas según el grupo etario predominante en cada tipo de cáncer y para investigar las razones detrás de casos fuera del rango habitual.
