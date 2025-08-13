@@ -172,4 +172,24 @@ plt.show()
 ###### Se realiza un conteo de los diagnósticos presentes en la base de datos y se seleccionan los tres más frecuentes. Posteriormente, se reorganiza esta información en un nuevo DataFrame con dos columnas: el nombre del diagnóstico y la cantidad de casos. Finalmente, se construye un gráfico de barras horizontales donde se representa la frecuencia de cada diagnóstico, facilitando la comparación visual entre ellos.
 ###### Análisis de resultados:
 
-###### Los tres diagnósticos más comunes evidencian cuáles son los tipos de cáncer con mayor prevalencia en la población analizada. Este patrón puede reflejar la carga epidemiológica de estas enfermedades en el país y orientar a las autoridades sanitarias sobre dónde focalizar recursos y campañas de prevención. La alta frecuencia de estos diagnósticos podría estar relacionada con factores como estilos de vida, predisposición genética o exposición ambiental, y su identificación permite priorizar estrategias de detección temprana y tratamiento oportuno para reducir la mortalidad y mejorar el pronóstico en la población afectada.
+###### Los tres diagnósticos más comunes evidencian cuáles son los tipos de cáncer con mayor prevalencia en la población analizada de la ciudad Pereira. Este patrón puede reflejar la carga epidemiológica de estas enfermedades en el país y orientar a las autoridades sanitarias sobre dónde focalizar recursos y campañas de prevención. La alta frecuencia de estos diagnósticos podría estar relacionada con factores como estilos de vida, predisposición genética o exposición ambiental, y su identificación permite priorizar estrategias de detección temprana y tratamiento oportuno para reducir la mortalidad y mejorar el pronóstico en la población afectada.
+
+#### Distribución de edad para los 4 diagnósticos más comunes
+
+```python
+top_4_diagnosticos = df_online['nombre_diagnostico'].value_counts().head(4).index
+
+df_top5 = df_online[df_online['nombre_diagnostico'].isin(top_4_diagnosticos)]
+
+plt.figure(figsize=(12, 8))
+sns.boxplot(x='nombre_diagnostico', y='edad', data=df_top5, color='#B5828C')
+
+plt.title('Distribución de Edad para los 4 Diagnósticos Más Comunes')
+plt.xlabel('Diagnóstico')
+plt.ylabel('Edad')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+```
+
+###### 
