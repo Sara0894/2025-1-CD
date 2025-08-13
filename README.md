@@ -152,3 +152,24 @@ plt.show()
 ###### Análisis de resultados:
 
 ###### La presencia de pacientes jóvenes con tumor maligno del ciego resulta significativa, ya que esta neoplasia es más común en adultos mayores y su aparición en edades tempranas podría estar asociada a factores genéticos, síndromes hereditarios como el cáncer colorrectal hereditario no polipósico (HNPCC) o la poliposis adenomatosa familiar, así como a estilos de vida y hábitos alimentarios de riesgo. Este hallazgo sugiere la necesidad de fortalecer los programas de detección precoz en poblaciones con antecedentes familiares y fomentar hábitos preventivos desde edades tempranas, ya que la detección a tiempo mejora considerablemente el pronóstico y las posibilidades de tratamiento exitoso.
+
+#### Top 3 diagnósticos más comunes
+
+```python
+conteo_diagnosticos = df_online['nombre_diagnostico'].value_counts().head(3)
+
+df_conteo = conteo_diagnosticos.reset_index()
+df_conteo.columns = ['nombre_diagnostico', 'cantidad']
+
+plt.figure(figsize=(10, 6))
+sns.barplot(x='cantidad', y='nombre_diagnostico', data=df_conteo, color='#FADA7A')
+plt.title('Top 3 diagnósticos más comunes')
+plt.xlabel('Cantidad de diagnósticos')
+plt.ylabel('Diagnóstico')
+plt.tight_layout()
+plt.show()
+```
+###### Se realiza un conteo de los diagnósticos presentes en la base de datos y se seleccionan los tres más frecuentes. Posteriormente, se reorganiza esta información en un nuevo DataFrame con dos columnas: el nombre del diagnóstico y la cantidad de casos. Finalmente, se construye un gráfico de barras horizontales donde se representa la frecuencia de cada diagnóstico, facilitando la comparación visual entre ellos.
+###### Análisis de resultados:
+
+###### Los tres diagnósticos más comunes evidencian cuáles son los tipos de cáncer con mayor prevalencia en la población analizada. Este patrón puede reflejar la carga epidemiológica de estas enfermedades en el país y orientar a las autoridades sanitarias sobre dónde focalizar recursos y campañas de prevención. La alta frecuencia de estos diagnósticos podría estar relacionada con factores como estilos de vida, predisposición genética o exposición ambiental, y su identificación permite priorizar estrategias de detección temprana y tratamiento oportuno para reducir la mortalidad y mejorar el pronóstico en la población afectada.
