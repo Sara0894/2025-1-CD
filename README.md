@@ -88,3 +88,67 @@ plt.show()
 
 ###### Análisis de resultados:
 ###### Los resultados muestran que el régimen contributivo concentra la mayor cantidad de pacientes registrados con morbilidad por cáncer, seguido por el régimen subsidiado y, en menor medida, otros regímenes especiales o no clasificados. Esto sugiere que gran parte de los casos corresponden a personas con empleo formal o afiliadas al sistema por cotización, lo que podría indicar mayor acceso a diagnósticos y registro de la enfermedad en este grupo. Sin embargo, el número considerable de pacientes en el régimen subsidiado también resalta la presencia de la enfermedad en poblaciones con menores recursos económicos, donde las barreras de acceso a diagnóstico y tratamiento pueden ser más altas. Esta distribución refleja la necesidad de estrategias de detección temprana y tratamiento equitativo en todos los regímenes, especialmente en el subsidiado, para reducir desigualdades en salud.
+
+#### Top 5 pacientes por edad y diagnóstico:
+```python
+top_pacientes = df_online[['nombre_diagnostico', 'edad']]
+
+top_5 = top_pacientes.sort_values('edad', ascending=False).head(5)
+print("Top 5 pacientes (diagnóstico y edad) de mayor a menor:")
+print(top_5)
+```
+###### En este paso se seleccionan únicamente las columnas nombre_diagnostico y edad para enfocarse en la relación entre ambas. Luego, se ordena la información de forma descendente según la edad, de manera que los pacientes de mayor edad aparezcan primero. Finalmente, se extraen las 5 primeras filas con head(5), que corresponden a los 5 pacientes más longevos de la base de datos junto con su diagnóstico, y se muestran en pantalla.
+###### Análisis de resultados:
+###### Por su prevalencia en edades avanzadas, reflejan la vulnerabilidad propia de este grupo poblacional, donde las comorbilidades y el deterioro del estado general pueden influir en la evolución de la enfermedad; este hallazgo subraya la importancia de implementar estrategias específicas de prevención, detección temprana y seguimiento para adultos mayores, así como la necesidad de adaptar los tratamientos oncológicos a sus condiciones particulares para mejorar su calidad de vida y pronóstico.
+
+#### Top 10 pacientes con diagnóstico de "Tumor maligno del ciego"
+```python
+df_filtrado = df_online[df_online['nombre_diagnostico'] == 'TUMOR MALIGNO DEL CIEGO']
+
+
+top_10_filtrado = df_filtrado.sort_values('edad', ascending=False).head(10)
+print("\nTop 10 pacientes con diagnóstico TUMOR MALIGNO DEL CIEGO:")
+print(top_10_filtrado[['nombre_diagnostico', 'edad']])
+
+
+plt.figure(figsize=(10, 7))
+sns.barplot(x=top_10_filtrado.index, y='edad', data=top_10_filtrado, color='#9EC6F3')
+plt.title('Top 10 edades de pacientes con diagnóstico de Tumor maligno  del ciego')
+plt.xlabel('Índice del paciente')
+plt.ylabel('Edad del paciente')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+```
+###### Se filtra la base de datos para conservar únicamente los registros cuyo diagnóstico sea "Tumor maligno del ciego". Posteriormente, se ordenan estos casos de forma descendente según la edad y se seleccionan los 10 pacientes más longevos, mostrando sus edades y diagnóstico. Para facilitar la interpretación visual, se genera un gráfico de barras donde el eje X representa el índice del paciente en el DataFrame y el eje Y su edad, lo que permite comparar rápidamente las edades de los casos más relevantes dentro de este diagnóstico.
+
+###### Análisis de resultados:
+
+###### El análisis revela que los pacientes con tumor maligno del ciego en el grupo de mayor edad presentan un rango etario elevado, lo que coincide con la tendencia epidemiológica de que la mayoría de los cánceres colorrectales se diagnostican en personas mayores, especialmente después de los 60 años. Esta información sugiere que el diagnóstico y la vigilancia en adultos mayores son cruciales para la detección temprana, dado que la edad avanzada es un factor de riesgo significativo. Además, este patrón resalta la importancia de promover campañas de tamizaje y control en la población de riesgo para reducir el diagnóstico en etapas avanzadas, cuando las opciones terapéuticas suelen ser más limitadas.
+
+#### Top 5 pacientes más jóvenes con diagnóstico de "Tumor maligno del ciego"
+
+```python
+df_filtrado = df_online[df_online['nombre_diagnostico'] == 'TUMOR MALIGNO DEL CIEGO']
+
+top_5_filtrado = df_filtrado.sort_values('edad', ascending=True).head(5)
+
+print("\nTop 5 pacientes con menor edad de diagnóstico TUMOR MALIGNO DEL CIEGO:")
+print(top_5_filtrado[['nombre_diagnostico', 'edad']])
+
+top_5_filtrado = top_5_filtrado.reset_index(drop=True)
+
+plt.figure(figsize=(10, 7))
+sns.barplot(x=top_5_filtrado.index, y='edad', data=top_5_filtrado, color='#E6B2BA')
+plt.title('Top 10 menores edades de pacientes con diagnóstico de Tumor maligno del ciego')
+plt.xlabel('Índice del paciente')
+plt.ylabel('Edad del paciente')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+```
+###### Se filtra la base de datos para conservar únicamente los casos con diagnóstico de "Tumor maligno del ciego", y posteriormente se ordenan de menor a mayor edad para identificar a los 5 pacientes más jóvenes que lo presentan. Esta información se imprime en pantalla y se visualiza mediante un gráfico de barras donde el eje X corresponde al índice de cada paciente y el eje Y a su edad. El uso de un color distintivo facilita resaltar estos casos particulares.
+
+###### Análisis de resultados:
+
+###### La presencia de pacientes jóvenes con tumor maligno del ciego resulta significativa, ya que esta neoplasia es más común en adultos mayores y su aparición en edades tempranas podría estar asociada a factores genéticos, síndromes hereditarios como el cáncer colorrectal hereditario no polipósico (HNPCC) o la poliposis adenomatosa familiar, así como a estilos de vida y hábitos alimentarios de riesgo. Este hallazgo sugiere la necesidad de fortalecer los programas de detección precoz en poblaciones con antecedentes familiares y fomentar hábitos preventivos desde edades tempranas, ya que la detección a tiempo mejora considerablemente el pronóstico y las posibilidades de tratamiento exitoso.
